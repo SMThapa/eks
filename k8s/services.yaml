@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: myapp
+  name: myapp
+  namespace: siddharth
+  annotations:
+    # Specify the load balancer scheme as internet-facing to create a public-facing Network Load Balancer (NLB)
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+spec:
+  ports:
+  - name: service
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: myapp #has to be similar with deployment label name to connect  
+  type: LoadBalancer
+status:
+  loadBalancer: {}

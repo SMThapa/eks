@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: myapp
+  name: myapp
+  namespace: siddharth
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: myapp
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - image: sidilian09/webserver:latest
+        name: my-server
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: app-config-dev #connecting configmap
+        - secretRef:
+            name: app-secret #connecting secrets

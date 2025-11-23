@@ -18,6 +18,7 @@ spec:
     spec:
       containers:
       - image: sidilian09/webserver:latest
+        imagePullPolicy: Always
         name: my-server
         resources: {}
         envFrom:

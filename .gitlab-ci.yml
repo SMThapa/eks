@@ -37,8 +37,8 @@ build_infra:
   - cd infra
   - terraform init
   script:
-  - terraform plan
-  - terraform apply -auto-approve
+  - terraform plan -out=tfplan
+  - terraform apply -auto-approve tfplan
 
 deploy:
   stage: deploy
@@ -67,5 +67,6 @@ deploy:
   - cd k8s
 
   script:
-  - kubectl create ns siddharth
-  - kubectl apply -f .
+  - kubectl apply -f namespace.yaml
+  - kubectl apply -f ./
+  - kubectl rollout restart deployment myapp || echo "Deployment not created yet"

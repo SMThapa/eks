@@ -18,5 +18,3 @@ spec:
   selector:
     app: myapp #has to be similar with deployment label name to connect  
   type: LoadBalancer
-status:
-  loadBalancer: {}

@@ -20,7 +20,13 @@ spec:
       - image: sidilian09/webserver:latest
         imagePullPolicy: Always
         name: my-server
-        resources: {}
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "100Mi"
+          limits:
+            cpu: "200m"
+            memory: "200Mi"
         envFrom:
         - configMapRef:
             name: app-config-dev #connecting configmap

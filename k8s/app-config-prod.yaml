@@ -4,4 +4,5 @@ data:
   LOG_LEVEL: error
 kind: ConfigMap
 metadata:
-  name: app-config-dev
+  name: app-config-prod
+  namespace: siddharth

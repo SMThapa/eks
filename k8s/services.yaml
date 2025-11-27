@@ -17,4 +17,4 @@ spec:
     targetPort: 80
   selector:
     app: myapp #has to be similar with deployment label name to connect  
-  type: LoadBalancer
+  type: NodePort
